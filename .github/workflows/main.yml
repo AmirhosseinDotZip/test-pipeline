@@ -15,3 +15,12 @@ jobs:
     steps:
       - name: Print a hello message
         run: echo "Hello, CI/CD World!"
+
+  goodbye-world-job:
+    # 5. Tell it WHAT "gear" to use
+    runs-on: ubuntu-latest
+    
+    # 6. List the steps to run
+    steps:
+      - name: Print a goodbye message
+        run: echo "Goodbye, CI/CD World!"
