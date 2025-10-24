@@ -21,3 +21,6 @@ jobs:
       # 3. This step runs our test file using python
       - name: Run tests
         run: python test_app.py
+
+      - name: hello4
+        run: ls -la
