@@ -1,0 +1,17 @@
+# 1. Give your pipeline a name
+name: My First CI Pipeline
+
+# 2. Tell it WHEN to run
+on: [push]
+
+# 3. Tell it WHAT to do
+jobs:
+  # 4. Define a "job" (a set of steps)
+  hello-world-job:
+    # 5. Tell it WHAT "gear" to use
+    runs-on: ubuntu-latest
+    
+    # 6. List the steps to run
+    steps:
+      - name: Print a hello message
+        run: echo "Hello, CI/CD World!"
