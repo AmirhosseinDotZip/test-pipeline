@@ -1,26 +1,23 @@
-# 1. Give your pipeline a name
-name: My First CI Pipeline
+name: Python Test Pipeline
 
-# 2. Tell it WHEN to run
 on: [push]
 
-# 3. Tell it WHAT to do
 jobs:
-  # 4. Define a "job" (a set of steps)
-  hello-world-job:
-    # 5. Tell it WHAT "gear" to use
+  build-and-test:
     runs-on: ubuntu-latest
     
-    # 6. List the steps to run
     steps:
-      - name: Print a hello message
-        run: echo "Hello, CI/CD World!"
+      # 1. This step checks out your repository's code
+      #    so the pipeline can see app.py and test_app.py
+      - name: Check out code
+        uses: actions/checkout@v4
 
-  goodbye-world-job:
-    # 5. Tell it WHAT "gear" to use
-    runs-on: ubuntu-latest
-    
-    # 6. List the steps to run
-    steps:
-      - name: Print a goodbye message
-        run: echo "Goodbye, CI/CD World!"
+      # 2. This step sets up the Python language on the runner
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 3. This step runs our test file using python
+      - name: Run tests
+        run: python test_app.py
